@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+
+/*Se le da formato al contenedor donde estará la huella y el letrero*/
+.escanear {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Se le da formato al contenedor "huella"*/
+.escanear .huella {
+    position: relative;
+    width: 310px;
+    height: 270px;
+    background: url("/img/solo_huella_gris.png");
+    background-size: 300px;
+}
+
+
+/*Formato a la huella antes de que se le dé animación*/
+.escanear .huella::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/img/solo_huella_azul.png");
+    background-size: 300px;
+    animation: animacion 4s ease-in-out infinite;
+}
+
+/*Formato de la animación de pasar de gris a azul*/
+@keyframes animacion {
+
+    0%,
+    100% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+/*Formato para la animación de la línea que atraviesa la huella*/
+.escanear .huella::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #6da3d0;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 20px #6da3d0) drop-shadow(0 0 60px #6da3d0);
+    animation: animacion_linea 4s ease-in-out infinite;
+}
+
+
+/*Animación de la línea que atraviesa la huella*/
+@keyframes animacion_linea {
+
+    0%,
+    100% {
+        top: 0%;
+    }
+
+    50% {
+        top: 100%;
+    }
+}
+
+
+/*Formato del texto "Escaneando huella..."*/
+.escanear h3 {
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    color: #6da3d0;
+    filter: drop-shadow(0 0 20px #6da3d0) drop-shadow(0 0 60px #6da3d0);
+    animation: animacion_texto 0.2s steps(1) infinite;
+}
+
+
+/*Animación del texto "Escaneando huella...*/
+@keyframes animacion_texto {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
