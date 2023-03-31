@@ -12,6 +12,11 @@ body {
     background: #111;
 }
 
+p{
+    font-size: 20px;
+    color: white;
+}
+
 
 /*Se le da formato al contenedor donde estará la huella y el letrero*/
 .escanear {
